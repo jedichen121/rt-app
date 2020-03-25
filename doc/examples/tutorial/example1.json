@@ -5,20 +5,39 @@
 	 */
 	"tasks" : {
 		"thread0" : {
+			"cpus" : [0],
 			"loop" : -1,
-			"run" :   20000,
-			"sleep" : 80000
-		}
+			"priority" : 15,
+			"runtime" :   100000,
+			"sleep" : 0,
+			"timer" : { "ref" : "unique", "period" : 300000 ,"mode" : "absolute"}
+		},
+		"thread1" : {
+			"cpus" : [0],
+			"loop" : -1,
+			"priority" : 10,
+			"runtime" :   150000,
+			"sleep" : 0,
+			"timer" : { "ref" : "unique", "period" : 300000 ,"mode" : "absolute"}
+		},
+		// "thread2" : {
+		// 	"cpus" : [2],
+		// 	"loop" : -1,
+		// 	"priority" : 10,
+		// 	"runtime" :   100000,
+		// 	"sleep" : 0,
+		// 	"timer" : { "ref" : "unique", "period" : 300000 ,"mode" : "absolute"}
+		// }
 	},
 	"global" : {
-		"duration" : 2,
-		"calibration" : "CPU0",
-		"default_policy" : "SCHED_OTHER",
+		"duration" : 10,
+		"calibration" : "CPU2",
+		"default_policy" : "SCHED_RR",
 		"pi_enabled" : false,
 		"lock_pages" : false,
 		"logdir" : "./",
 		"log_basename" : "rt-app1",
 		"ftrace" : "main,task,loop,event",
-		"gnuplot" : true,
+		"gnuplot" : true
 	}
 }

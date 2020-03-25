@@ -897,6 +897,23 @@ static void set_thread_membind(thread_data_t *data, numaset_data_t * numa_data)
 #endif
 }
 
+struct sched_attr_dl {
+    __u32 size;
+
+    __u32 sched_policy;
+    __u64 sched_flags;
+
+    /* SCHED_NORMAL, SCHED_BATCH */
+    __s32 sched_nice;
+
+    /* SCHED_FIFO, SCHED_RR */
+    __u32 sched_priority;
+
+    /* SCHED_DEADLINE (nsec) */
+    __u64 sched_runtime;
+    __u64 sched_deadline;
+    __u64 sched_period;
+};
 
 static void set_thread_priority(thread_data_t *data, sched_data_t *sched_data)
 {
@@ -1009,7 +1026,16 @@ static void set_thread_priority(thread_data_t *data, sched_data_t *sched_data)
 			sa_params.sched_deadline = sched_data->deadline;
 			sa_params.sched_period = sched_data->period;
 
-			ret = sched_setattr(tid, &sa_params, flags);
+			struct sched_attr_dl dl_params;
+			dl_params.size = sizeof(struct sched_attr_dl);
+			dl_params.sched_flags = 0;
+			dl_params.sched_policy = SCHED_DEADLINE;
+			dl_params.sched_priority = 0;
+			dl_params.sched_runtime = sched_data->runtime;
+			dl_params.sched_deadline = sched_data->deadline;
+			dl_params.sched_period = sched_data->period;
+
+			ret = sched_setattr(tid, &dl_params, flags);
 			if (ret != 0) {
 				log_critical("[%d] sched_setattr "
 						"returned %d", data->ind, ret);

@@ -1,0 +1,28 @@
+{
+	
+	"tasks" : {
+		"thread0" : {
+			"loop" : -1,
+			"run" :   200,
+			"dl-runtime": 30000,
+			"dl-period": 50000,
+			"dl-deadline": 50000
+			
+		}
+	},
+	"global" : {
+		"duration" : 5,
+		"calibration" : "CPU0",
+		"default_policy" : "SCHED_DEADLINE",
+		"pi_enabled" : false,
+		"lock_pages" : false,
+		"logdir" : "./",
+		"log_size" : "file",
+		"log_basename" : "rt-app",
+		"ftrace" : "none",
+		"gnuplot" : true,
+		"io_device" : "/dev/null",
+		"mem_buffer_size" : 4194304,
+		"cumulative_slack" : false
+	}
+}

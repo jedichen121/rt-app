@@ -1,0 +1,23 @@
+{
+	"resources" : 0,
+	"tasks" : {
+		"task0" : {
+			// "instance" : 1,
+			"loop" : -1,
+			"run" :   250,
+            "dl-runtime": 300,
+            "dl-period": 2000
+			// "timer" : { "ref" : "unique", "period" : 20000, "mode" : "absolute" }
+		}
+	},
+	"global" : {
+		"calibration" : "CPU0",
+		"default_policy" : "SCHED_DEADLINE",
+		"duration" : 10,
+		// "logdir" : "/tmp/",
+		// "log_basename" : "rt-app",
+		// "lock_pages" : true,
+		// "cumulative_slack" : true
+	}
+},
+
