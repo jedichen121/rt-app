@@ -118,7 +118,7 @@ regular build of rt-app for your host against json-c in canonical locations
 (and installation with PREFIX=/usr/local)
 
     ./autogen.sh
-    ./configure --with-deadline
+    ./configure
     make
     make install
 
