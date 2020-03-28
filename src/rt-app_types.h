@@ -59,6 +59,7 @@ typedef enum policy_t
 	rr = SCHED_RR,
 	fifo = SCHED_FIFO,
 	deadline = SCHED_DEADLINE,
+	tt = 7,
 	same = -1
 } policy_t;
 

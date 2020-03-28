@@ -32,7 +32,7 @@
 	"global" : {
 		"duration" : 10,
 		"calibration" : "CPU2",
-		"default_policy" : "SCHED_TTSS",
+		"default_policy" : "SCHED_TT",
 		"pi_enabled" : false,
 		"lock_pages" : false,
 		"logdir" : "./",

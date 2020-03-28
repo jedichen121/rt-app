@@ -181,6 +181,8 @@ string_to_policy(const char *policy_name, policy_t *policy)
 		*policy =  fifo;
 	else if (strcmp(policy_name, "SCHED_DEADLINE") == 0)
 		*policy =  deadline;
+	else if (strcmp(policy_name, "SCHED_TT") == 0)
+		*policy =  tt;
 	else
 		return 1;
 	return 0;
@@ -200,6 +202,8 @@ policy_to_string(policy_t policy)
 			return "SCHED_FIFO";
 		case deadline:
 			return "SCHED_DEADLINE";
+		case tt:
+			return "SCHED_TT";
 		default:
 			return NULL;
 	}

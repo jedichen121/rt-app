@@ -940,12 +940,22 @@ static void set_thread_priority(thread_data_t *data, sched_data_t *sched_data)
 	{
 		case rr:
 		case fifo:
+		case tt:
 			log_debug("[%d] setting scheduler %s priority %d", data->ind,
 					policy_to_string(sched_data->policy), sched_data->prio);
-			log_ftrace(ft_data.marker_fd, FTRACE_ATTRS,
+			
+			if (sched_data->policy == tt)
+				log_ftrace(ft_data.marker_fd, FTRACE_ATTRS,
+					"rtapp_attrs: event=policy policy=%s prio=%d",
+					"tt",
+					sched_data->prio);
+			else
+			{
+				log_ftrace(ft_data.marker_fd, FTRACE_ATTRS,
 				   "rtapp_attrs: event=policy policy=%s prio=%d",
 				   sched_data->policy == rr ? "rr" : "fifo",
 				   sched_data->prio);
+			}
 
 			param.sched_priority = sched_data->prio;
 			ret = pthread_setschedparam(pthread_self(),

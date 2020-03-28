@@ -843,7 +843,7 @@ static sched_data_t *parse_sched_data(struct json_object *obj, int def_policy)
 	policy = get_string_value_from(obj, "policy", TRUE, def_str_policy);
 	if (policy ){
 		if (string_to_policy(policy, &tmp_data.policy) != 0) {
-			log_critical(PIN2 "Invalid policy %s", policy);
+			log_critical(PIN2 "Invalid policy 1 %s", policy);
 			exit(EXIT_INV_CONFIG);
 		}
 	} else {
@@ -1199,7 +1199,7 @@ parse_global(struct json_object *global, rtapp_options_t *opts)
 	policy = get_string_value_from(global, "default_policy",
 				       TRUE, "SCHED_OTHER");
 	if (string_to_policy(policy, &opts->policy) != 0) {
-		log_critical(PFX "Invalid policy %s", policy);
+		log_critical(PFX "Invalid policy 2 %s", policy);
 		exit(EXIT_INV_CONFIG);
 	}
 	/*
