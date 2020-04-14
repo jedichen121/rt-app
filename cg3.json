@@ -12,22 +12,22 @@
 			"sleep" : 0,
 			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
 		},
-		"thread1" : {
-			// "cpus" : [1],
-			"loop" : -1,
-			"priority" : 30,
-			"runtime" :   80000,
-			"sleep" : 0,
-			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
-		},
-		"thread2" : {
-			// "cpus" : [1],
-			"loop" : -1,
-			"priority" : 20,
-			"runtime" :   100000,
-			"sleep" : 0,
-			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
-		}
+		// "thread1" : {
+		// 	// "cpus" : [1],
+		// 	"loop" : -1,
+		// 	"priority" : 30,
+		// 	"runtime" :   80000,
+		// 	"sleep" : 0,
+		// 	"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
+		// },
+		// "thread2" : {
+		// 	// "cpus" : [1],
+		// 	"loop" : -1,
+		// 	"priority" : 20,
+		// 	"runtime" :   100000,
+		// 	"sleep" : 0,
+		// 	"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
+		// }
 	},
 	"global" : {
 		"duration" : -1,
