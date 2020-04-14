@@ -1,0 +1,43 @@
+{
+	/*
+	 * Simple use case which creates a thread that run 2ms then sleep 8ms
+	 * until the use case is stopped with Ctrl+C
+	 */
+	"tasks" : {
+		"thread0" : {
+			// "cpus" : [1],
+			"loop" : -1,
+			"priority" : 40,
+			"runtime" :   50000,
+			"sleep" : 0,
+			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
+		},
+		"thread1" : {
+			// "cpus" : [1],
+			"loop" : -1,
+			"priority" : 30,
+			"runtime" :   80000,
+			"sleep" : 0,
+			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
+		},
+		"thread2" : {
+			// "cpus" : [1],
+			"loop" : -1,
+			"priority" : 20,
+			"runtime" :   100000,
+			"sleep" : 0,
+			"timer" : { "ref" : "unique", "period" : 1000000 ,"mode" : "absolute"}
+		}
+	},
+	"global" : {
+		"duration" : -1,
+		"calibration" : "CPU1",
+		"default_policy" : "SCHED_TT",
+		"pi_enabled" : false,
+		"lock_pages" : false,
+		"logdir" : "./",
+		"log_basename" : "rt-app3",
+		"ftrace" : "main,task,loop,event",
+		"gnuplot" : true
+	}
+}
